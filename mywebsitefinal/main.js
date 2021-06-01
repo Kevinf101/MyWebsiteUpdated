@@ -21,7 +21,7 @@ renderer.render(scene, camera);
 
 //create legs for the desk
 function createDesk(){
-  const legGeo = new THREE.BoxGeometry(2,10,2);
+  const legGeo = new THREE.BoxGeometry(1,10,1);
   const legMat = new THREE.MeshStandardMaterial({color: 0x42f5e0});
   const legDone = new THREE.Mesh(legGeo, legMat);
   legDone.position.y =5;
@@ -57,7 +57,12 @@ const leg4 = createDesk();
 leg4.position.x = 10;
 leg4.position.z = 10;
 
-scene.add(leg1, leg2, leg3, leg4);
+const topOfDeskGeo = new THREE.BoxGeometry(30, 1, 13);
+const topOfDeskMat = new THREE.MeshStandardMaterial({color:0xF2f5e0 });
+const topOfDesk = new THREE.Mesh(topOfDeskGeo, topOfDeskMat);
+topOfDesk.position.z = 5;
+topOfDesk.position.y = 10;
+scene.add(leg1, leg2, leg3, leg4, topOfDesk);
 renderer.render(scene, camera);
 
 
